@@ -1,0 +1,10 @@
+{% if question_list %}
+    <url>
+    {% for question in question_list %}
+        <li><a href="/detail/{{question.id}}/">{{question.subject}}</a></li>
+
+    {% endfor %}
+    </url>
+{% else %}
+    <p>질문이 없습니다.</p>
+{% endif %}
