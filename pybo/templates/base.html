@@ -10,8 +10,15 @@
     <title>Hello, pybo!</title>
 </head>
 <body>
+
+<!--네비게이션 바-->
+{% include "navbar.html" %}
+<!--네비게이션 바-->
 {% block content %}
 {% endblock %}
+
+<script src="{{url_for('static', filename='jquery-3.6.0.min.js')}}"></script>
+<script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
 
 </body>
 </html>

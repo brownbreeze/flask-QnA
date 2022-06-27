@@ -4,7 +4,7 @@ from datetime import datetime
 
 from pybo.models import Question
 from .. import db
-from ..forms import AnswerForm, AnswerForm
+from ..forms import AnswerForm, QuestionForm
 
 bp = Blueprint('question', __name__, url_prefix='/question')
 
@@ -23,7 +23,7 @@ def detail(question_id):
 
 @bp.route('/create/', methods=('GET','POST'))
 def create():
-    form = AnswerForm()
+    form = QuestionForm()
     if request.method == 'POST' and form.validate_on_submit() :
         question = Question(subject=form.subject.data, content=form.content.data,
                             create_date=datetime.now())
