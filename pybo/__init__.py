@@ -12,6 +12,8 @@ migrate = Migrate()
 def create_app():
     app = Flask(__name__)
     app.config.from_object(config)
+    # 임시방편 self.csrf_impl.generate_csrf_token(self) 관련 에러
+    app.config["SECRET_KEY"]="1273128736178"
 
     # ORM
     db.init_app(app)
