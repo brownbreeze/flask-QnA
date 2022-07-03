@@ -5,6 +5,7 @@ from datetime import datetime
 from pybo.models import Question
 from .. import db
 from ..forms import AnswerForm, QuestionForm
+from pybo.views.auth_views import login_required
 
 bp = Blueprint('question', __name__, url_prefix='/question')
 
@@ -24,6 +25,7 @@ def detail(question_id):
                            question=question, form=form)
 
 @bp.route('/create/', methods=('GET','POST'))
+@login_required
 def create():
     form = QuestionForm()
     if request.method == 'POST' and form.validate_on_submit() :
